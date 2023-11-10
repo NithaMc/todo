@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+    <div class="div">
+    <h3>To Do List</h3>
+    <input type="text" id="item" placeholder="enter todo...." class="itm">
+    <button onclick="todo()" >add</button>
+    </div>
+    <div class="list">
+    <ul id="ul"></ul>
+</div>
+</div>
+</body>
+
+<script>
+function todo(){
+    let item=document.getElementById('item').value
+    let list=document.createElement('li')
+    let text=document.createTextNode(item)
+    list.appendChild(text)
+    let ul=document.getElementById('ul')
+    ul.appendChild(list)
+
+    let span=document.createElement('span')
+    let close=document.createTextNode('x')
+    span.appendChild(close)
+    list.appendChild(span)
+
+    span.addEventListener('click',function() {
+        ul.removeChild(list)
+    })
+}
+    </script>
+
+
+
+</html>
+<style>
+    .div{
+        background-color: aqua;
+        text-align: center;
+       
+    }
+    button{
+        padding: 10px;
+        border-radius: 10px;
+    }
+    .itm{
+        padding: 10px;
+        padding-left:30%;
+        padding-right: 30%;
+        border-radius: 10px;
+       }
+    span{
+        position:absolute;
+        left:480px;
+        top: 5px;
+        align-content: center;
+        padding: 5px;
+        background-color: rgb(156, 83, 83);
+       height: auto;
+        
+        
+        
+      
+       }
+    li{
+        background-color: burlywood;
+        margin-top: 10px;
+        padding: 10px;
+        list-style-type:none;
+        width: 500px;
+        margin-left: 40px;
+        position: relative;
+       
+    }
+    .list{
+        overflow-y: scroll;
+        
+        height: 300px;
+        background-color: white;
+        margin-top: 20px;
+    }
+    .container{
+        width: 700px;
+        margin: auto;
+        background-color: aqua;
+        box-shadow: 0px 0px 2px 1px;
+        margin-bottom: 20px;
+      
+      }
+</style>
